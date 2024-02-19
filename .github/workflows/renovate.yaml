@@ -34,4 +34,4 @@ jobs:
         env:
           LOG_LEVEL: debug
           REPOSITORIES: ${{ env.REPOSITORIES }}
-          RENOVATE_DRY_RUN: ${{ github.event_name == 'pull_request' && 'full' || '' }
+          RENOVATE_DRY_RUN: ${{ github.event_name == 'pull_request' && 'full' || '' }}
