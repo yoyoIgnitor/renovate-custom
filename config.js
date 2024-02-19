@@ -10,7 +10,7 @@ module.exports = {
     username: 'test', 
     "hostRules": [
       {
-        "matchHost": "hub.docker.com",
+        "matchHost": "docker.io",
         "username": "process.env.DOCKER_USERNAME",
         "password": "process.env.DOCKER_PASSWORD",
         "hostType": "docker" 
