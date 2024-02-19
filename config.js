@@ -1,6 +1,6 @@
 module.exports = {
     platform: 'github',
-    repositories: [{repository: 'yoyoIgnitor/reno-custom',
+    repositories: [{repository: 'yoyoIgnitor/test-custom',
                     secrets: {
                     app_id: "process.env.APP_ID",
                     private_key: "process.env.PRIVATE_KEY"
