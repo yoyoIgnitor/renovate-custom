@@ -7,8 +7,7 @@ module.exports = {
                     }}],
     onboardingConfig: {"$schema": "https://docs.renovatebot.com/renovate-schema.json"},
     extends: ["local>yoyoIgnitor/renovate-custom"],
-    username: 'test',
-    gitAuthor:"Test",  
+    username: 'test', 
     "hostRules": [
       {
         "matchHost": "hub.docker.com",
