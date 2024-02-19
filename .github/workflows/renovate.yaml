@@ -1,0 +1,37 @@
+name: Renovate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+  schedule:
+    - cron: '0 */12 * * *'  #runs every 12 hours
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+      - name: Get token
+        id: get_token
+        uses: tibdex/github-app-token@v1
+        with:
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          app_id: ${{ secrets.APP_ID }}
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@v39.1.1
+        with:
+          configurationFile: config.js
+          token: '${{ steps.get_token.outputs.token }}'
+          env-regex: "^(?:RENOVATE_\\w+|LOG_LEVEL|GITHUB_COM_TOKEN|NODE_OPTIONS|REPOSITORIES|OTEL_EXPORTER_OTLP_ENDPOINT)$"
+        env:
+          LOG_LEVEL: debug
+          REPOSITORIES: ${{ env.REPOSITORIES }}
+          RENOVATE_DRY_RUN: ${{ github.event_name == 'pull_request' && 'full' || '' }
