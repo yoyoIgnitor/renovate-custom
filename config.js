@@ -14,6 +14,13 @@ module.exports = {
         "username": "process.env.DOCKER_USERNAME",
         "password": "process.env.DOCKER_PASSWORD",
         "hostType": "docker" 
+      },
+      {
+        "matchHost": "renotest.jfrog.io",
+        "username": "process.env.RENOVATE_ART_SECRET_USERNAME",
+        "password": "process.env.RENOVATE_ART_SECRET_PASSWORD",
+        "hostType": "docker" 
       }
+      
     ]
   }
